@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Define source and destination paths relative to script location
+SOURCE_DIR="$SCRIPT_DIR/agent"
+DEST_DIR="$SCRIPT_DIR/../.opencode/agent"
+
+# Check if source directory exists
+if [ ! -d "$SOURCE_DIR" ]; then
+    echo "Error: Source directory $SOURCE_DIR does not exist"
+    exit 1
+fi
+
+# Create destination directory if it doesn't exist
+mkdir -p "$DEST_DIR"
+
+# Copy all files from source to destination
+cp -r "$SOURCE_DIR"/* "$DEST_DIR/"
+
+echo "Successfully copied agent files from $SOURCE_DIR to $DEST_DIR"
