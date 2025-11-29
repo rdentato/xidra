@@ -1,6 +1,7 @@
 ---
 description: Git configuration manager that groups changes into logical commits
 mode: subagent
+model: github/claude-haiku-4.5
 temperature: 0.2
 tools:
   write: false
